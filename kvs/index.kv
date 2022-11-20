@@ -1,0 +1,449 @@
+#: import hex kivy.utils.get_color_from_hex
+
+<Content>:
+    orientation: 'vertical'
+    padding: "8dp"
+    spacing: "8dp"
+    md_bg_color: hex('#D8BFD8')
+
+    MDLabel:
+        id: user_name
+        text: "Nome do Usuario"
+        font_style: "Subtitle1"
+        color: hex('#50006c')
+        size_hint_y: None
+        pos_hint: {"center_x": 0.6}
+        height: self.texture_size[1]
+
+    MDLabel:
+        id: user_email
+        text: "email_do_usuario@servidor.com"
+        size_hint_y: None
+        pos_hint: {"center_x": 0.6}
+        font_style: "Caption"
+        color: hex('#50006c')
+        height: self.texture_size[1]
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        md_bg_color: hex('#50006c')
+        size_hint_y: .01
+
+
+    ScrollView:
+        MDList:
+
+            OneLineIconListItem:
+                text: "Cadastros"
+                theme_text_color: "Custom"
+                text_color: hex('#50006c')
+                on_release:
+                    root.nav_drawer.set_state("close")
+                    root.add()
+                IconLeftWidget:
+                    icon: "pencil"
+                    theme_icon_color: "Custom"
+                    icon_color: app.theme_cls.primary_color
+
+            OneLineIconListItem:
+                text: "Pedidos"
+                theme_text_color: "Custom"
+                text_color: hex('#50006c')
+                on_release:
+                    root.nav_drawer.set_state("close")
+                    root.request()
+                IconLeftWidget:
+                    icon: "content-paste"
+                    theme_icon_color: "Custom"
+                    icon_color: app.theme_cls.primary_color
+
+            OneLineIconListItem:
+                text: "Consultar Vendas"
+                theme_text_color: "Custom"
+                text_color: hex('#50006c')
+                on_release:
+                    root.nav_drawer.set_state("close")
+                    root.saled()
+                IconLeftWidget:
+                    icon: "tag"
+                    theme_icon_color: "Custom"
+                    icon_color: app.theme_cls.primary_color
+
+            OneLineIconListItem:
+                text: "Consultar Devoluções"
+                theme_text_color: "Custom"
+                text_color: hex('#50006c')
+                on_release:
+                    root.nav_drawer.set_state("close")
+                    root.devolution()
+                IconLeftWidget:
+                    icon: "inbox-arrow-up"
+                    theme_icon_color: "Custom"
+                    icon_color: app.theme_cls.primary_color
+
+            OneLineIconListItem:
+                text: "Consultar Estoque"
+                theme_text_color: "Custom"
+                text_color: hex('#50006c')
+                on_release:
+                    root.nav_drawer.set_state("close")
+                    root.inventory()
+                IconLeftWidget:
+                    icon: "inbox"
+                    theme_icon_color: "Custom"
+                    icon_color: app.theme_cls.primary_color
+                    
+            OneLineIconListItem:
+                text: "Sair"
+                theme_text_color: "Custom"
+                text_color: hex('#50006c')
+                on_release:
+                    root.nav_drawer.set_state("close")
+                    root.logout()
+                IconLeftWidget:
+                    icon: "logout"
+                    theme_icon_color: "Custom"
+                    icon_color: app.theme_cls.primary_color
+                
+
+<IndexScreen>:
+
+    Screen:
+        orientation: 'vertical'
+        
+        MDBoxLayout:
+            orientation: 'vertical'
+
+            MDTopAppBar:
+                md_bg_color: hex('#D8BFD8')
+                specific_text_color: app.theme_cls.primary_color
+                elevation: 0
+                title: 'KDEM'
+                pos_hint: {'top': 1}
+                left_action_items: [["menu", lambda x: root.open_menu()]]
+                right_action_items: [["clock", lambda x: root.saled()], ["bell", lambda x: root.notification()], ["tag", lambda x: root.request()], ["cog", lambda x: root.configuration()]]
+
+            MDGridLayout:
+                rows: 3
+                cols: 3
+                padding: root.width / 100 * 10, 40, root.width / 100 * 10, 40
+                spacing: root.width / 100 * 10
+                md_bg_color: hex('#aaabbb')
+                size_hint_y: 90
+
+                MDCard:
+                    md_bg_color: hex('#E6E6FA')
+                    elevation: 0
+                    radius: 20
+                    size_hint: None, None
+                    size: root.width / 5, root.height / 8
+
+                    MDRelativeLayout:
+
+                        MDLabel:
+
+                            text: 'Vender'
+                            adaptive_size: True
+                            color: "purple"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            bold: True
+                            halign: "center"
+                            font_size: '20sp'
+
+                
+                MDCard:
+                    md_bg_color: hex('#E6E6FA')
+                    elevation: 0
+                    radius: 20
+                    size_hint: None, None
+                    size: root.width / 5, root.height / 8
+
+                    MDRelativeLayout:
+
+                        MDLabel:
+
+                            text: 'Extornar'
+                            adaptive_size: True
+                            color: "purple"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            bold: True
+                            halign: "center"
+                            font_size: '20sp'
+
+                MDCard:
+                    md_bg_color: hex('#E6E6FA')
+                    elevation: 0
+                    radius: 20
+                    size_hint: None, None
+                    size: root.width / 5, root.height / 8
+
+                    MDRelativeLayout:
+
+                        MDLabel:
+
+                            text: 'Recibo'
+                            adaptive_size: True
+                            color: "purple"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            bold: True
+                            halign: "center"
+                            font_size: '20sp'
+
+                MDCard:
+                    md_bg_color: hex('#E6E6FA')
+                    elevation: 0
+                    radius: 20
+                    size_hint: None, None
+                    size: root.width / 5, root.height / 8
+
+                    MDRelativeLayout:
+
+                        MDLabel:
+
+                            text: 'Rotas'
+                            adaptive_size: True
+                            color: "purple"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            bold: True
+                            halign: "center"
+                            font_size: '20sp'
+
+                
+                MDCard:
+                    md_bg_color: hex('#E6E6FA')
+                    elevation: 0
+                    radius: 20
+                    size_hint: None, None
+                    size: root.width / 5, root.height / 8
+
+                    MDRelativeLayout:
+
+                        MDLabel:
+
+                            text: 'Tarefas'
+                            adaptive_size: True
+                            color: "purple"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            bold: True
+                            halign: "center"
+                            font_size: '20sp'
+
+                MDCard:
+                    md_bg_color: hex('#E6E6FA')
+                    elevation: 0
+                    radius: 20
+                    size_hint: None, None
+                    size: root.width / 5, root.height / 8
+
+                    MDRelativeLayout:
+
+                        MDLabel:
+
+                            text: 'Emails'
+                            adaptive_size: True
+                            color: "purple"
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            bold: True
+                            halign: "center"
+                            font_size: '20sp'
+
+                MDCard:
+                    md_bg_color: 'green'
+                    elevation: 0
+                    radius: 20
+                    size_hint: None, None
+                    size: root.width / 5, root.height / 8
+
+                    MDRelativeLayout:
+
+                        MDLabel:
+
+                            text: 'Suporte'
+                            adaptive_size: True
+                            color: 1,1,1,1
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            bold: True
+                            halign: 'center'
+                            font_size: '20sp'
+
+                
+                MDCard:
+                    md_bg_color: 'purple'
+                    elevation: 0
+                    radius: 20
+                    size_hint: None, None
+                    size: root.width / 5, root.height / 8
+
+                    MDRelativeLayout:
+
+                        MDLabel:
+
+                            text: 'Ativação'
+                            adaptive_size: True
+                            color: 1,1,1,1
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            bold: True
+                            halign: "center"
+                            font_size: '20sp'
+
+                MDCard:
+                    md_bg_color: 'red'
+                    elevation: 0
+                    radius: 20
+                    size_hint: None, None
+                    size: root.width / 5, root.height / 8
+
+                    MDRelativeLayout:
+
+                        MDLabel:
+
+                            text: 'Database'
+                            adaptive_size: True
+                            color: 1,1,1,1
+                            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                            bold: True
+                            halign: "center"
+                            font_size: '20sp'
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                size_hint_y: 25
+                md_bg_color: 0,0,0,1
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: 30
+                    md_bg_color: hex('#50006c')
+
+                    MDGridLayout:
+                        cols: 4
+                        rows: 1
+                        padding: 10
+                        spacing: 10
+
+                        MDLabel:
+                            text: 'Vendedor:'
+                            color: 1,1,1,1
+                            bold: True
+                            halign: "center"
+                            font_size: '15sp'
+
+                        MDLabel:
+                            id: vendedor
+                            color: 1,1,1,1
+                            bold: True
+                            halign: "center"
+                            font_size: '15sp'
+
+                        MDLabel:
+                            text: 'Cliente:'
+                            color: 1,1,1,1
+                            bold: True
+                            halign: "center"
+                            font_size: '15sp'
+
+                        MDLabel:
+                            id: cliente
+                            color: 1,1,1,1
+                            bold: True
+                            halign: "center"
+                            font_size: '15sp'
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    size_hint_y: 40
+                    padding: 10
+                    spacing: 10
+                    md_bg_color: 1,1,1,1
+
+                    MDLabel:
+                        id: information
+                        text: 'Em breve informações exclusivas'
+                        color: app.theme_cls.primary_color
+                        bold: True
+                        halign: "center"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        font_size: '25sp'
+
+                MDBoxLayout:
+                    padding: 7
+                    spacing: 10
+                    size_hint_y: 30
+                    md_bg_color: hex('#D8BFD8')
+
+                    MDLabel:
+                        id: data
+                        color: "purple"
+                        bold: True
+                        halign: "center"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        font_size: '20sp'
+                        size_hint_x: .5
+
+                    MDLabel:
+                        id: hora
+                        color: "purple"
+                        bold: True
+                        halign: "center"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        font_size: '20sp'
+                        size_hint_x: .5
+    
+    MDNavigationDrawer:
+        id: nav_drawer
+        content: content
+        padding: 0
+        elevation: 0
+        md_bg_color: hex('#50006c')
+
+        MDBoxLayout:
+            orientation: 'vertical'
+
+            MDBoxLayout:
+                orientation: 'vertical'
+                size_hint_y: .3
+
+                MDBoxLayout:
+                    size_hint_y: .6
+                    
+                    Image:
+                        source: "images/app/build/icon.png"
+                        size_hint: None, None
+                        allow_stretch: True
+                        pos_hint: {'center_x': .5, 'center_y': .5}
+
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        padding: 5
+
+                        MDLabel:
+                            text: 'KDEM'
+                            color: 1,1,1,1
+                            halign: "center"
+
+                        MDLabel:
+                            text: 'Sistema de vendas'
+                            color: 1,1,1,1
+                            halign: "center"
+
+                        MDLabel:
+                            font_style: "Caption"
+                            text: 'Desenvolvido por: Denky @ 2022'
+                            color: 1,1,1,1
+                            halign: "center"
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    md_bg_color: 0,0,0,.5
+                    size_hint_y: .3
+
+                    MDLabel:
+                        id: announce
+                        text: 'Em Breve Anuncio'
+                        color: 1,1,1,1
+                        halign: "center"
+
+            Content:
+                id: content
+                nav_drawer: nav_drawer
+                size_hint_y: .8

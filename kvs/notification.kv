@@ -1,0 +1,41 @@
+#: import hex kivy.utils.get_color_from_hex
+             
+
+<NotificationScreen>:
+
+    BoxLayout:
+        orientation: 'vertical'
+        md_bg_color: hex('#aaabbb')
+
+        MDTopAppBar:
+            title: 'Notificações'
+            md_bg_color: hex('#D8BFD8')
+            specific_text_color: app.theme_cls.primary_color
+            elevation: 0
+            pos_hint: {'top': 1}
+            left_action_items: [["arrow-left", lambda x: root.back()]]
+
+        FloatLayout:
+
+            MDCard:
+                md_bg_color: hex('#E6E6FA')
+                elevation: 0
+                radius: 20
+                size_hint: None, None
+                size: root.width / 100 * 90, root.height / 100 * 80
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+                RelativeLayout:
+
+                    MDIconButton:
+                        icon: "bell-alert"
+                        pos_hint: {"top": 1, "right": 1}
+
+                    MDLabel:
+                        text: 'Nenhuma Notificação'
+                        adaptive_size: True
+                        color: "purple"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        bold: True
+                        halign: "center"
+                        font_size: '20sp'

@@ -1,0 +1,67 @@
+#: import hex kivy.utils.get_color_from_hex
+
+<LoginScreen>:
+
+    FloatLayout:
+        
+        MDTopAppBar:
+            id: toolbar
+            md_bg_color: hex('#D8BFD8')
+            title: 'KDEM'
+            specific_text_color: app.theme_cls.primary_color
+            elevation: 0
+            pos_hint: {'top': 1}
+            left_action_items: [["database", lambda x: root.data_callback()]]
+            right_action_items: [["exit-to-app", lambda x: root.check_callback()]]
+
+        Image:
+            source: 'images/user.png'
+            size_hint: 0.2, 0.2
+            pos_hint: {"center_x": 0.5, "center_y": 0.83}
+
+        MDLabel:
+            font_style: 'H5'
+            bold: True
+            text: "KDEM"
+            halign: "center"
+            color: 139,0,139,1
+            pos_hint: {"center_x": 0.5, "center_y": 0.75}
+
+        MDLabel:
+            font_style: 'Caption'
+            font_size: '15sp'
+            text: "Faça login para continuar"
+            halign: "center"
+            color: app.theme_cls.primary_color
+            pos_hint: {"center_x": 0.5, "center_y": 0.71}
+
+        MDTextField:
+            id: email_field
+            hint_text: "Email"
+            pos_hint: {"center_x": 0.5, "center_y": 0.60}
+            size_hint_x: .8
+            icon_right: 'email'
+            icon_right_color: app.theme_cls.primary_color
+
+        MDTextField:
+            id: password_field
+            hint_text: "Senha"
+            pos_hint: {"center_x": 0.5, "center_y": 0.47}
+            size_hint_x: .8
+            password: True
+            icon_right: 'lock'
+            icon_right_color: app.theme_cls.primary_color
+
+        MDFillRoundFlatButton:
+            text: 'Entrar'
+            md_bg_color: app.theme_cls.primary_color
+            pos_hint: {"center_x": 0.5, "center_y": 0.35}
+            size_hint_x: .4
+            text_color: 1,1,1,1
+            on_press: root.enter(email_field.text, password_field.text)
+
+        MDTextButton:
+            text: 'Esqueci minha senha'
+            font_size: '15sp'
+            color: app.theme_cls.primary_color
+            pos_hint: {"center_x": 0.5, "center_y": 0.28}

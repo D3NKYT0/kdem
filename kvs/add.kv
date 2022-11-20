@@ -1,0 +1,179 @@
+#: import hex kivy.utils.get_color_from_hex
+             
+
+<AddScreen>:
+
+    MDBoxLayout:
+        orientation: 'vertical'
+
+        MDTopAppBar:
+            title: 'Cadastros'
+            md_bg_color: hex('#D8BFD8')
+            specific_text_color: app.theme_cls.primary_color
+            elevation: 0
+            pos_hint: {'top': 1}
+            left_action_items: [["arrow-left", lambda x: root.back()]]
+
+        MDGridLayout:
+            rows: 2
+            cols: 3
+            padding: root.width / 100 * 10, 40, root.width / 100 * 10, 40
+            spacing: root.width / 100 * 10
+            md_bg_color: hex('#aaabbb')
+            size_hint_y: 90
+
+            MDCard:
+                md_bg_color: hex('#E6E6FA')
+                elevation: 0
+                radius: 20
+                size_hint: None, None
+                size: root.width / 5, root.height / 8
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    padding: 10
+
+                    MDIconButton:
+                        icon: "filter"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint_y: 25
+
+                    MDLabel:
+                        size_hint_y: 75
+                        text: 'Categoria'
+                        adaptive_size: True
+                        color: "purple"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        bold: True
+                        halign: "center"
+                        font_size: '20sp'
+
+            MDCard:
+                md_bg_color: hex('#E6E6FA')
+                elevation: 0
+                radius: 20
+                size_hint: None, None
+                size: root.width / 5, root.height / 8
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    padding: 10
+
+                    MDIconButton:
+                        icon: "menu-open"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint_y: 25
+
+                    MDLabel:
+                        size_hint_y: 75
+                        text: 'Produto'
+                        adaptive_size: True
+                        color: "purple"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        bold: True
+                        halign: "center"
+                        font_size: '20sp'
+
+            MDCard:
+                md_bg_color: hex('#E6E6FA')
+                elevation: 0
+                radius: 20
+                size_hint: None, None
+                size: root.width / 5, root.height / 8
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    padding: 10
+
+                    MDIconButton:
+                        icon: "plus-circle"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint_y: 25
+
+                    MDLabel:
+                        size_hint_y: 75
+                        text: 'Modificador'
+                        adaptive_size: True
+                        color: "purple"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        bold: True
+                        halign: "center"
+                        font_size: '20sp'
+
+            MDCard:
+                md_bg_color: hex('#E6E6FA')
+                elevation: 0
+                radius: 20
+                size_hint: None, None
+                size: root.width / 5, root.height / 8
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    padding: 10
+
+                    MDIconButton:
+                        icon: "account-plus"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint_y: 25
+
+                    MDLabel:
+                        size_hint_y: 75
+                        text: 'Cliente'
+                        adaptive_size: True
+                        color: "purple"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        bold: True
+                        halign: "center"
+                        font_size: '20sp'
+
+            MDCard:
+                md_bg_color: hex('#E6E6FA')
+                elevation: 0
+                radius: 20
+                size_hint: None, None
+                size: root.width / 5, root.height / 8
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    padding: 10
+
+                    MDIconButton:
+                        icon: "car"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint_y: 25
+
+                    MDLabel:
+                        size_hint_y: 75
+                        text: 'Fornecedor'
+                        adaptive_size: True
+                        color: "purple"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        bold: True
+                        halign: "center"
+                        font_size: '20sp'
+
+            MDCard:
+                md_bg_color: hex('#E6E6FA')
+                elevation: 0
+                radius: 20
+                size_hint: None, None
+                size: root.width / 5, root.height / 8
+
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    padding: 10
+
+                    MDIconButton:
+                        icon: "account"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        size_hint_y: 25
+
+                    MDLabel:
+                        size_hint_y: 75
+                        text: 'Vendedor'
+                        adaptive_size: True
+                        color: "purple"
+                        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                        bold: True
+                        halign: "center"
+                        font_size: '20sp'
