@@ -7,6 +7,7 @@ from kivymd.uix.screenmanager import ScreenManager
 from kivy.lang import Builder
 from kivy.properties import StringProperty
 
+# main screens
 from screens.index import IndexScreen
 from screens.login import LoginScreen
 from screens.add import AddScreen
@@ -17,17 +18,19 @@ from screens.inventory import InventoryScreen
 from screens.configuration import ConfigurationScreen
 from screens.notification import NotificationScreen
 
+# subs screens 
+from screens.subscreens.add_produto import AddProdutoScreen
+
 
 class KdemApp(MDApp):
 
     username = StringProperty(None)
     password = StringProperty(None)
 
-    def __init__(self, login, products, **kwargs):
+    def __init__(self, login, **kwargs):
         super().__init__(**kwargs)
-        self.__version__ = "0.2.5.6"
+        self.__version__ = "0.2.6.1"
         self.login = login
-        self.products = products
         self.manager = ScreenManager()
 
     def build(self):
@@ -63,6 +66,11 @@ class KdemApp(MDApp):
         Builder.load_file("kvs/configuration.kv")
         self.manager.add_widget(ConfigurationScreen(name="configuration"))
 
+        # ------------------------------------------------------------------------
+
+        Builder.load_file("kvs/subkvs/add_produto.kv")
+        self.manager.add_widget(AddProdutoScreen(name="add_produto"))
+
         return self.manager
 
     def get_application_config(self):
@@ -85,6 +93,5 @@ if __name__ == '__main__':
         os.remove('data/account.json')
 
     KdemApp(
-        login=config.data["login"]["ACCOUNTS"],
-        products=config.data["default"]["PRODUCTS"]
+        login=config.data["login"]["ACCOUNTS"]
     ).run()

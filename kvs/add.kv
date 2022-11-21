@@ -38,7 +38,7 @@
                         pos_hint: {"center_x": 0.5, "center_y": 0.5}
                         size_hint_y: 25
 
-                    MDLabel:
+                    MDTextButton:
                         size_hint_y: 75
                         text: 'Categoria'
                         adaptive_size: True
@@ -64,7 +64,7 @@
                         pos_hint: {"center_x": 0.5, "center_y": 0.5}
                         size_hint_y: 25
 
-                    MDLabel:
+                    MDTextButton:
                         size_hint_y: 75
                         text: 'Produto'
                         adaptive_size: True
@@ -73,6 +73,8 @@
                         bold: True
                         halign: "center"
                         font_size: '20sp'
+                        on_release:
+                            root.produto()
 
             MDCard:
                 md_bg_color: hex('#E6E6FA')
@@ -90,7 +92,7 @@
                         pos_hint: {"center_x": 0.5, "center_y": 0.5}
                         size_hint_y: 25
 
-                    MDLabel:
+                    MDTextButton:
                         size_hint_y: 75
                         text: 'Modificador'
                         adaptive_size: True
@@ -116,7 +118,7 @@
                         pos_hint: {"center_x": 0.5, "center_y": 0.5}
                         size_hint_y: 25
 
-                    MDLabel:
+                    MDTextButton:
                         size_hint_y: 75
                         text: 'Cliente'
                         adaptive_size: True
@@ -142,7 +144,7 @@
                         pos_hint: {"center_x": 0.5, "center_y": 0.5}
                         size_hint_y: 25
 
-                    MDLabel:
+                    MDTextButton:
                         size_hint_y: 75
                         text: 'Fornecedor'
                         adaptive_size: True
@@ -168,7 +170,7 @@
                         pos_hint: {"center_x": 0.5, "center_y": 0.5}
                         size_hint_y: 25
 
-                    MDLabel:
+                    MDTextButton:
                         size_hint_y: 75
                         text: 'Vendedor'
                         adaptive_size: True

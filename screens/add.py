@@ -9,3 +9,8 @@ class AddScreen(MDScreen):
     def back(self):
         self.manager.current = 'index'
         self.manager.get_screen('index')
+
+    def produto(self):
+        self.manager.current = 'add_produto'
+        self.manager.get_screen('add_produto')
+    

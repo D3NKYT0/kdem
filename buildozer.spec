@@ -13,10 +13,10 @@ package.domain = org.pdv.denky.android
 source.dir = /home/denky/PDVKivyMD
 
 # (list) Source files to include (let empty to include all the files)
-source.include_exts = py,png,jpg,kv,atlas,json,wav,ogg,mp3
+source.include_exts = py,png,jpg,kv,atlas,json
 
 # (list) List of inclusions using pattern matching (assets/*,images/*.png)
-source.include_patterns = screens/*,data/*,images/*,custom/*,sounds/*,kvs/*
+source.include_patterns = screens/*,data/*,images/*,custom/*,kvs/*
 
 # (list) Source files to exclude (let empty to not exclude anything)
 #source.exclude_exts = spec
