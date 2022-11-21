@@ -29,7 +29,7 @@ class KdemApp(MDApp):
 
     def __init__(self, login, **kwargs):
         super().__init__(**kwargs)
-        self.__version__ = "0.2.6.1"
+        self.__version__ = "0.2.6.2"
         self.login = login
         self.manager = ScreenManager()
 
