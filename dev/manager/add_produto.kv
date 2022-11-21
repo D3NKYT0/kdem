@@ -3,34 +3,32 @@
 
 <AddProdutoScreen>:
 
-    MDBoxLayout:
-        orientation: 'vertical'
+    FloatLayout:
         md_bg_color: hex('#aaabbb')
 
         MDTopAppBar:
-            md_bg_color: hex('#D8BFD8')
             title: 'Cadastro de Produto'
+            md_bg_color: hex('#D8BFD8')
             specific_text_color: app.theme_cls.primary_color
             elevation: 0
             pos_hint: {'top': 1}
-            left_action_items: [["arrow-left", lambda x: root.backScreen()]]
-            right_action_items: [["home", lambda x: root.backHome()]]
+            left_action_items: [["arrow-left", lambda x: root.back()]]
 
-        FloatLayout:
+        MDLabel:
+            id: retorno
+            font_style: 'H5'
+            bold: True
+            halign: "center"
+            color: 139,0,139,1
+            pos_hint: {"center_y": 0.83}
 
-            MDLabel:
-                id: retorno
-                font_style: 'H5'
-                bold: True
-                halign: "center"
-                color: 139,0,139,1
-                pos_hint: {"center_y": 0.95, "center_x": 0.5}
+        MDScrollView:
+            pos_hint: {"center_y": 0.55}
 
             MDBoxLayout:
                 orientation: 'vertical'
                 spacing: 5
-                pos_hint: {"center_y": 0.6, "center_x": 0.5}
-                
+
                 MDTextField:
                     id: codigo
                     hint_text: "Codigo (opcional)"
@@ -113,7 +111,7 @@
                 MDFillRoundFlatButton:
                     text: 'Cadastrar'
                     md_bg_color: app.theme_cls.primary_color
-                    pos_hint: {"center_x": 0.5}
+                    pos_hint: {"center_x": 0.5, "center_y": 0.35}
                     size_hint_x: .4
                     text_color: 1,1,1,1
                     on_press: root.produto(codigo.text, barcode.text, descricao.text, venda.text, custo.text, observacao.text)
