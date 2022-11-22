@@ -14,6 +14,7 @@ class AddProdutoScreen(MDScreen):
     def on_pre_enter(self, *args):
         self.loadData()
         self.ids.retorno.text = "Novo Produto"
+        self.clear_fields()
 
     def convert_currency(self, value):
         a = '{:,.2f}'.format(float(value))
@@ -35,7 +36,7 @@ class AddProdutoScreen(MDScreen):
     def add_before(self, data):
         if len(self.products_list) > 0:
             for i in self.products_list:
-                if i['code'] == data['code']:
+                if i['codigo'] == data['codigo']:
                     return 'Produto existente'
         self.products_list.append(data)
         self.saveData()
@@ -59,37 +60,35 @@ class AddProdutoScreen(MDScreen):
 
     def produto(self, codigo, barcode, descricao, venda, custo, observacao):
 
-        self.clear_fields()
-
         if len(codigo) == 0:
-            codigo = 0
+            codigo = len(self.products_list) + 1
 
         if len(barcode) == 0:
             barcode = 0
 
-        if len(venda) == 0:
-            venda = 0.0
-
         if len(custo) == 0:
             custo = 0.0
-
-        if len(descricao) == 0:
-            descricao = 'Sem descrição'
 
         if len(observacao) == 0:
             observacao = 'Sem Observação'
 
-        data = {
-            "codigo": int(codigo),
-            "barcode": int(barcode),
-            "descricao": descricao,
-            "venda": self.convert_currency(venda),
-            "custo": self.convert_currency(custo),
-            "observacao": observacao
-        }
+        try:
 
-        if int(codigo) > 0:
-            msg = self.add_before(data)
-            self.ids.retorno.text = msg
+            if int(venda) > 0 and len(descricao) > 0:
+                if int(codigo) > 0:
+                    
+                    data = {
+                        "codigo": int(codigo),
+                        "barcode": int(barcode),
+                        "descricao": descricao,
+                        "venda": self.convert_currency(venda),
+                        "custo": self.convert_currency(custo),
+                        "observacao": observacao
+                    }  
 
-    
+                    self.clear_fields()
+                    msg = self.add_before(data)
+                    self.ids.retorno.text = msg
+
+        except ValueError:
+            pass

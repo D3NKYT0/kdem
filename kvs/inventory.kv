@@ -33,10 +33,29 @@
                         pos_hint: {"top": 1, "right": 1}
 
                     MDLabel:
-                        text: 'Nenhum produto cadastrado!'
+                        id: notification_product
                         adaptive_size: True
                         color: "purple"
                         pos_hint: {"center_x": 0.5, "center_y": 0.5}
                         bold: True
                         halign: "center"
                         font_size: '20sp'
+
+                    MDScrollView:
+                        MDList:
+                            id: lista_de_produtos
+
+<Product>:
+    text: "Nome"
+    secondary_text: "Preço"
+    tertiary_text: "Quantidade"
+
+    theme_text_color: "Custom"
+    text_color: hex('#50006c')
+    on_release:
+        root.remove()
+
+    IconLeftWidget:
+        icon: "database"
+        theme_icon_color: "Custom"
+        icon_color: app.theme_cls.primary_color
